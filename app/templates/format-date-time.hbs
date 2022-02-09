@@ -1,0 +1,40 @@
+{{page-title "FormatDateTime"}}
+
+{{!-- Locale:
+
+{{#each (array "en-us" "fr-fr" "de-de" "en-au") as |locale|}}
+  <label>
+    {{locale}}
+    <input type="radio" name="locale" value={{locale}} checked={{eq this.currentLocale locale}} {{on "change" this.handleChange}}>
+  </label>
+{{/each}} --}}
+
+{{!-- <br /> --}}
+
+<h1 class="font-bold">2022-03-31T14:31:00</h1>
+
+{{#each (array
+  (hash flag="🇺🇸" locale="en-us")
+  (hash flag="🇫🇷" locale="fr-fr")
+  (hash flag="🇩🇪" locale="de-de")
+  (hash flag="🇦🇺" locale="en-au")
+) as |data|}}
+  <br /><br />
+
+  {{data.flag}}
+  {{format-date
+    "2022-03-31T14:31:00"
+    locale=data.locale
+  }}
+{{/each}}
+
+{{!--
+  weekday: "long", "short", "narrow"
+  era: "long", "short", "narrow"
+  year: "numeric", "2-digit"
+  month: "numeric", "2-digit", "long", "short", "narrow"
+  day: "numeric", "2-digit"
+  hour: "numeric", "2-digit"
+  minute: "numeric", "2-digit"
+  second: "numeric", "2-digit"
+  }} --}}
